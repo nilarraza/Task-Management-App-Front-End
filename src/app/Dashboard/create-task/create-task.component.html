@@ -1,0 +1,47 @@
+
+
+<div class="container">
+    <div class="d-flex justify-content-center">
+       
+    
+    <form name="form" #signUp="ngForm" (submit)="sendTask()"  class="form-register"  class="form-register col-5" >
+        
+            <br/>
+          <h3 class="text-center">Create Task  </h3><br/>
+          
+              <div class="form-group">
+               <input type="text" name="title" #title="ngModel"  [(ngModel)]="task.title" [class.is-invalid]="title.invalid && title.touched"
+               class="form-control" placeholder="Title for Task" minlength="4" required >
+               <small class="text-danger" [class.d-none]="title.valid || title.untouched">Title is required and must contain atleast 4 character</small>
+              </div>
+
+              <div class="form-group">
+                <textarea type="text"  name="description" #description="ngModel"  [(ngModel)]="task.description" [class.is-invalid]="description.invalid && description.touched"
+                class="form-control" placeholder="Description About the Task" minlength="4" required ></textarea>
+                <small class="text-danger" [class.d-none]="description.valid || description.untouched" >Description about the task is required and must contain atleast a word</small>
+               </div>
+
+               <div class="form-group">
+                <input type="Date"  name="date" #date="ngModel"  [(ngModel)]="task.date" [class.is-invalid]="date.invalid && date.touched"
+                class="form-control " placeholder="Select Date" required >
+                <small class="text-danger" [class.d-none]="date.valid || date.untouched" >Date is required</small>
+               </div>
+
+               
+               <div class="form-group">
+                <input type="time"  name="time" #time="ngModel"  [(ngModel)]="task.time" [class.is-invalid]="time.invalid && time.touched"
+                class="form-control " placeholder="Select Time" required >
+                <small class="text-danger" [class.d-none]="time.valid || time.untouched" >Time is required</small>
+               </div>
+
+            <button type="submit"  class="btn btn-success  btn-block" [disabled]="signUp.invalid">Create</button>
+           
+
+            <br/>
+       
+         
+            
+    
+    </form> 
+    </div>
+    </div>

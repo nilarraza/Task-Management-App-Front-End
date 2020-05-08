@@ -1,0 +1,48 @@
+
+        
+<div class="container">
+    <br>
+        <h4 class="text-center">Upcoming Task</h4><br>
+           
+        <div class="alert alert-danger text-center "  [hidden]="!htext" role="alert">
+            {{message}}
+          </div>
+
+          <form name="form" #move="ngForm"   class="form-register text-center"  class="form-register col-5"  [hidden]="!moveform">
+            <h5 class="text-center">Move To </h5>
+            <br/>
+            <div class="form-group">
+                <input type="Date"  name="date" #date="ngModel"  [(ngModel)]="udate" [class.is-invalid]="date.invalid && date.touched"
+                class="form-control " placeholder="Select Date" required >
+                <small class="text-danger" [class.d-none]="date.valid || date.untouched" >Date is required</small>
+            </div>
+
+            <button type="submit"  class="btn btn-success  btn-block" (click)="moveTask()" [disabled]="move.invalid">Move</button>
+            <br/>
+            </form> 
+
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th>Title</th>							
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Delete</th>
+                    <th>Move</th>
+                </tr>
+            </thead>
+
+            <tbody>  
+                    <tr *ngFor="let task of tasks">
+                        <td>{{task.title}}</td>
+                        <td>{{task.description}}</td>
+                        <td>{{task.date}}</td>
+                        <td>{{task.time}}</td>
+                        <td><button type="button" class="btn btn-danger" (click)="deleteTask(task.id)" >Delete</button></td>
+                        <td><button type="button" class="btn btn-success" (click)="moveFormActive(task.id)">Move</button></td>                                              
+                    </tr>
+               
+            </tbody>
+        </table>
+    </div>

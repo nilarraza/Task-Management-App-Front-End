@@ -1,0 +1,29 @@
+
+        
+<div class="container">
+    <br>
+        <h4 class="text-center">Active Users</h4><br>
+  
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th>User Id</th>							
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Block</th>
+                </tr>
+            </thead>
+
+            <tbody>  
+                    <tr *ngFor="let user of Users">
+                        <td>{{user.userid}}</td>
+                        <td>{{user.username}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.role}}</td>
+                        <td><button type="button" class="btn btn-danger" (click)="block(user.userid)">Block</button></td>                                                                   
+                    </tr>
+               
+            </tbody>
+        </table>
+    </div>

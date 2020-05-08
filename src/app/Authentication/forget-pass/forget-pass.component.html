@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="d-flex justify-content-center">
+       
+    
+    <form name="form"  #f="ngForm"  class="form-register" (submit)="findUser()"  class="form-register col-5" #loginForm="ngForm">
+        
+            <br/>
+          <h3 class="text-center">Find Your Account </h3><br/>
+
+          <div class="alert alert-danger "  [hidden]="!htext" role="alert">
+            {{message}}          
+          </div>
+          <div class="alert alert-success "  [hidden]="!ftext" role="alert">
+            {{message}}          
+          </div>
+          
+              <div class="form-group">   
+               <input type="text" #name="ngModel" [(ngModel)]="username" [class.is-invalid]="name.invalid && name.touched"
+               name="name" class="form-control" placeholder="Username"   required >
+               <small class="text-danger" [class.d-none]="name.valid || name.untouched">Username is required</small>
+              </div> 
+
+            <button type="submit" class="btn btn-success  btn-block" [disabled]="f.invalid">Find Me</button>          
+            <br/>
+
+         
+            <P class="text-center">Don't have an account. Sign up <a href="auth/signup">here</a></P>
+         
+              
+           
+         
+            
+    
+    </form> 
+    </div>
+    </div>

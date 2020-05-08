@@ -1,0 +1,45 @@
+<link href="//use.fontawesome.com/releases/v5.13.0/css/all.css" rel="stylesheet">
+<div class="container">
+    <div class="d-flex justify-content-center">
+       
+    
+    <form name="form" #signUp="ngForm" (submit)="sendUser()" class="form-register"  class="form-register col-5" >
+        
+            <br/>
+          <h3 class="text-center">Sign up </h3><br/>
+          
+              <div class="form-group">
+               <input type="text" #name="ngModel" [class.is-invalid]="name.invalid && name.touched" [(ngModel)]="user.username" name="username" 
+               class="form-control" placeholder="Username" minlength="4" required >
+               <small class="text-danger" [class.d-none]="name.valid || name.untouched">Username is required and must contain atleast 4 character</small>
+              </div>
+
+              <div class="form-group">
+               <input type="email" [(ngModel)]="user.email" #email="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  [class.is-invalid]="email.invalid && email.touched" name="email" 
+               class="form-control" placeholder="Email" required>  
+               <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required and must be a valid email</small>
+              <!-- <div *ngIf="email.errors && (email.invalid || email.touched)">
+                <small class="text-danger" *ngIf="email.errors.required">Email is required</small>
+                <small class="text-danger" *ngIf="email.errors.pattern">please enter a valid email</small>
+              </div> -->
+              </div>
+
+               <div class="form-group">
+                 
+               <input type="password"  [(ngModel)]="user.password" [class.is-invalid]="password.invalid && password.touched" #password="ngModel"  name="password" class="form-control" 
+               placeholder="Password" minlength="8" data-toggle="password" required >   
+               <small class="text-danger" [class.d-none]="password.valid || password.untouched">password is required and must contain atleast 8 digits</small>
+              </div>
+            
+           
+            <button type="submit"  class="btn btn-success  btn-block" [disabled]="signUp.invalid">Sign Up</button>
+           
+
+            <br/><br/>
+           <P class="text-center">Already have an account. Sign in <a href="auth/login">here</a></P>
+         
+            
+    
+    </form> 
+    </div>
+    </div>

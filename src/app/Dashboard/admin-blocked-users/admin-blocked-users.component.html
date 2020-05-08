@@ -1,0 +1,29 @@
+
+        
+<div class="container">
+    <br>
+        <h4 class="text-center">Blocked Users</h4><br>
+  
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th>User Id</th>							
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Block</th>
+                </tr>
+            </thead>
+
+            <tbody>  
+                    <tr *ngFor="let admin of users">
+                        <td>{{admin.userid}}</td>
+                        <td>{{admin.username}}</td>
+                        <td>{{admin.email}}</td>
+                        <td>{{admin.role}}</td>  
+                        <td><button type="button" class="btn btn-success" (click)="unblock(admin.userid)">Unblock</button></td>                                                                 
+                    </tr>
+               
+            </tbody>
+        </table>
+    </div>

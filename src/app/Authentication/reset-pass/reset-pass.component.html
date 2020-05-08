@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="d-flex justify-content-center">
+     
+  
+  <form name="form"  #reset="ngForm"  class="form-register" (submit)="sendPass()"   class="form-register col-5" #loginForm="ngForm">
+      
+          <br/>
+        <h3 class="text-center">Reset Password </h3><br/>
+
+        <div class="alert alert-danger "  [hidden]="!htext" role="alert">
+          {{message}}      
+        </div>
+
+        <div class="alert alert-success "  [hidden]="!stext" role="alert">
+          {{message}}  
+        </div>
+
+            <div class="form-group">
+             <input type="password"  #password="ngModel"  [(ngModel)]="passwordreset" [class.is-invalid]="password.invalid && password.touched"
+             name="password" class="form-control" placeholder="New Password" minlength="8" required > 
+             <small class="text-danger" [class.d-none]="password.valid || password.untouched">password is required and must contain atleast 8 digits</small>               
+            </div>
+          
+          <button type="submit" class="btn btn-success  btn-block" [disabled]="reset.invalid">Save Password</button>
+  
+          <br/>
+          <P class="text-center">Already have an account. Sign in <a href="auth/login">here</a></P>
+      
+       
+          
+  
+  </form> 
+  </div>
+  </div>

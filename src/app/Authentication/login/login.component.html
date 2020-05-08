@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="d-flex justify-content-center">
+       
+    
+    <form name="form"  #f="ngForm"  class="form-register" (submit)="sendAuth()"  class="form-register col-5" #loginForm="ngForm">
+        
+            <br/>
+          <h3 class="text-center">Sign in </h3><br/>
+
+          <div class="alert alert-danger "  [hidden]="!htext" role="alert">
+            {{message}}
+            <!-- <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button> -->
+          </div>
+          
+              <div class="form-group">   
+               <input type="text" #name="ngModel" [(ngModel)]="user.username" [class.is-invalid]="name.invalid && name.touched"
+               name="name" class="form-control" placeholder="Username"   required >
+               <small class="text-danger" [class.d-none]="name.valid || name.untouched">Username is required</small>
+              </div> 
+              <div class="form-group">
+               <input type="password"  #password="ngModel"  [(ngModel)]="user.password" [class.is-invalid]="password.invalid && password.touched"
+               name="password" class="form-control" placeholder="Password" minlength="8" required > 
+               <small class="text-danger" [class.d-none]="password.valid || password.untouched">password is required and must contain atleast 8 digits</small>               
+              </div>
+            
+            <button type="submit" class="btn btn-success  btn-block" [disabled]="f.invalid">Sign in</button>
+            <p class="text-right"><a href="auth/forgetpassword">Forget Password?</a></p>
+
+            <br/>
+           <P class="text-center">Don't have an account. Sign up <a href="auth/signup">here</a></P>
+         
+            
+    
+    </form> 
+    </div>
+    </div>

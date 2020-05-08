@@ -1,0 +1,27 @@
+
+        
+<div class="container">
+    <br>
+        <h4 class="text-center">Users List</h4><br>
+  
+        <table class="table ">
+            <thead>
+                <tr>
+                    <th>User Id</th>							
+                    <th>Username</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                </tr>
+            </thead>
+
+            <tbody>  
+                    <tr *ngFor="let admin of admins">
+                        <td>{{admin.userid}}</td>
+                        <td>{{admin.username}}</td>
+                        <td>{{admin.email}}</td>
+                        <td>{{admin.role}}</td>                                                                  
+                    </tr>
+               
+            </tbody>
+        </table>
+    </div>
